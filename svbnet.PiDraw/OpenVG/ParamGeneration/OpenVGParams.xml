@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OpenVGParams>
+  <StaticParamList EnumName="ParamType" ClassName="CurrentDrawingContext">
+    <Param Name="MatrixMode" Type="MatrixMode" Value="0x1100" />
+    <Param Name="FillRule" Type="FillRule" Value="0x1101" />
+    <Param Name="ImageQuality" Type="ImageQuality" Value="0x1102" />
+    <Param Name="RenderingQuality" Type="RenderingQuality" Value="0x1103" />
+    <Param Name="BlendMode" Type="BlendMode" Value="0x1104" />
+    <Param Name="ImageMode" Type="ImageMode" Value="0x1105" />
+    <Param Name="ScissorRects" Type="int[]" Value="0x1106" />
+    <Param Name="StrokeLineWidth" Type="float" Value="0x1110" />
+    <Param Name="StrokeCapStyle" Type="CapStyle" Value="0x1111" />
+    <Param Name="StrokeJoinStyle" Type="JoinStyle" Value="0x1112" />
+    <Param Name="StrokeMiterLimit" Type="float" Value="0x1113" />
+    <Param Name="StrokeDashPattern" Type="float[]" Value="0x1114" />
+    <Param Name="StrokeDashPhase" Type="float" Value="0x1115" />
+    <Param Name="StrokeDashPhaseReset" Type="bool" Value="0x1116" />
+    <Param Name="TileFillColor" Type="float[]" Value="0x1120" />
+    <Param Name="ClearColor" Type="float[]" Value="0x1121" />
+    <Param Name="Masking" Type="bool" Value="0x1130" />
+    <Param Name="Scissoring" Type="bool" Value="0x1131" />
+    <Param Name="PixelLayout" Type="PixelLayout" Value="0x1140" />
+    <Param Name="ScreenLayout" Type="ScreenLayout" Value="0x1141" />
+    <Param Name="FilterFormatLinear" Type="bool" Value="0x1150" />
+    <Param Name="FilterFormatPremultiplied" Type="bool" Value="0x1151" />
+    <Param Name="FilterChannelMask" Type="ImageChannel" Value="0x1152" />
+
+  </StaticParamList>
+</OpenVGParams>

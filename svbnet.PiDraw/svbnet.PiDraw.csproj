@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0942B5E5-0656-4FB1-BB51-6E19802BE5C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>svbnet.PiDraw</RootNamespace>
+    <AssemblyName>svbnet.PiDraw</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BcmHost\BcmHostException.cs" />
+    <Compile Include="BcmHost\BcmHostLibrary.cs" />
+    <Compile Include="BcmHost\BcmHostNativeMethods.cs" />
+    <Compile Include="BcmHost\ErrorHelper.cs" />
+    <Compile Include="BcmHost\InvalidHandleException.cs" />
+    <Compile Include="DispManX\AlphaFlags.cs" />
+    <Compile Include="DispManX\Clamp.cs" />
+    <Compile Include="DispManX\ClampFlags.cs" />
+    <Compile Include="DispManX\ClampKeys.cs" />
+    <Compile Include="DispManX\DefaultDisplayId.cs" />
+    <Compile Include="DispManX\Display.cs" />
+    <Compile Include="DispManX\Element.cs" />
+    <Compile Include="DispManX\HandleResource.cs" />
+    <Compile Include="DispManX\ImageResource.cs" />
+    <Compile Include="DispManX\KeymaskFlags.cs" />
+    <Compile Include="DispManX\Protection.cs" />
+    <Compile Include="DispManX\Resource.cs" />
+    <Compile Include="DispManX\Transform.cs" />
+    <Compile Include="DispManX\Update.cs" />
+    <Compile Include="DispManX\VcAlpha.cs" />
+    <Compile Include="Egl\Config.cs" />
+    <Compile Include="Egl\Context.cs" />
+    <Compile Include="Egl\CurrentThread.cs" />
+    <Compile Include="Egl\Display.cs" />
+    <Compile Include="Egl\DispManXWindow.cs" />
+    <Compile Include="Egl\EglApi.cs" />
+    <Compile Include="Egl\EglConfigAttribute.cs" />
+    <Compile Include="Egl\EglConfigValue.cs" />
+    <Compile Include="Egl\EglError.cs" />
+    <Compile Include="Egl\EglException.cs" />
+    <Compile Include="Egl\EglNativeMethods.cs" />
+    <Compile Include="Egl\EglRenderableTypeConfigValue.cs" />
+    <Compile Include="Egl\EglSurfaceTypeConfigValue.cs" />
+    <Compile Include="Egl\ErrorHelper.cs" />
+    <Compile Include="Egl\Surface.cs" />
+    <Compile Include="Egl\WindowSurface.cs" />
+    <Compile Include="NativeResource.cs" />
+    <Compile Include="OpenVG\BlendMode.cs" />
+    <Compile Include="OpenVG\CapStyle.cs" />
+    <Compile Include="OpenVG\ColorRampSpreadMode.cs" />
+    <Compile Include="OpenVG\CurrentDrawingContext.cs" />
+    <Compile Include="OpenVG\ErrorHelper.cs" />
+    <Compile Include="OpenVG\FillRule.cs" />
+    <Compile Include="OpenVG\ImageChannel.cs" />
+    <Compile Include="OpenVG\ImageFormat.cs" />
+    <Compile Include="OpenVG\ImageMode.cs" />
+    <Compile Include="OpenVG\ImageQuality.cs" />
+    <Compile Include="OpenVG\JoinStyle.cs" />
+    <Compile Include="OpenVG\MaskOperation.cs" />
+    <Compile Include="OpenVG\MatrixMode.cs" />
+    <Compile Include="OpenVG\NativeParamsResource.cs" />
+    <Compile Include="OpenVG\OpenVGError.cs" />
+    <Compile Include="OpenVG\OpenVGException.cs" />
+    <Compile Include="OpenVG\OpenVGNativeMethods.cs" />
+    <Compile Include="OpenVG\PaintMode.cs" />
+    <Compile Include="OpenVG\PaintType.cs" />
+    <Compile Include="OpenVG\PathAbsRel.cs" />
+    <Compile Include="OpenVG\PathCapability.cs" />
+    <Compile Include="OpenVG\PathCommand.cs" />
+    <Compile Include="OpenVG\PathDatatype.cs" />
+    <Compile Include="OpenVG\PathSegment.cs" />
+    <Compile Include="OpenVG\PixelLayout.cs" />
+    <Compile Include="OpenVG\RenderingQuality.cs" />
+    <Compile Include="OpenVG\TilingMode.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="VcTypes\VcImageType.cs" />
+    <Compile Include="VcTypes\VcRect.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OpenVG\ParamGeneration\OpenVGParams.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
