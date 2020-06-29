@@ -41,7 +41,7 @@ namespace Example.Examples
                         graphics.DrawImage(image, new Point(0, 0));
                     }
                     // Write the buffer to the display
-                    imageResource.Redraw();
+                    imageResource.Write();
                     Console.WriteLine("Copied drawing");
 
                     var srcRect = new VcRect

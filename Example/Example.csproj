@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="ExampleBase.cs" />
     <Compile Include="Examples\ImageExample.cs" />
+    <Compile Include="Examples\SnapshotExample.cs" />
     <Compile Include="Examples\TextWatermarkExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -2,6 +2,7 @@
 {
     public enum DefaultDisplayId
     {
+        Default = 0,
         MainLcd,
         AuxLcd,
         Hdmi,

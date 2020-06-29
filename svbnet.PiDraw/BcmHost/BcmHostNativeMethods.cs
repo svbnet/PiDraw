@@ -10,7 +10,7 @@ namespace svbnet.PiDraw.BcmHost
     /// <summary>
     /// Methods as defined in include/bcm_host.h.
     /// </summary>
-    public class BcmHostNativeMethods
+    internal class BcmHostNativeMethods
     {
         private const string BcmHost = "libbcm_host";
 
@@ -28,39 +28,44 @@ namespace svbnet.PiDraw.BcmHost
         #region " Functions defined in include/interface/vmcs_host/vc_dispmanx.h "
 
             #region " Resources "
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_create", CallingConvention = CallingConvention.Cdecl)]
-        public static extern uint VcDispmanxResourceCreate(VcImageType type, uint width, uint height, ref uint nativeImageHandle);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_create", CallingConvention = CallingConvention.Cdecl)]
+            public static extern uint VcDispmanxResourceCreate(VcImageType type, uint width, uint height, ref uint nativeImageHandle);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_write_data",
-            CallingConvention = CallingConvention.Cdecl)]
-        public static extern int VcDispmanxResourceWriteData(uint res, VcImageType srcType, int srcPitch,
-            IntPtr srcAddress, ref VcRect rect);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_write_data",
+                CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxResourceWriteData(uint res, VcImageType srcType, int srcPitch,
+                IntPtr srcAddress, ref VcRect rect);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_read_data", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int VcDispmanxResourceReadData(uint handle, ref VcRect pRect, IntPtr dstAddress,
-            uint dstPitch);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_read_data", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxResourceReadData(uint handle, ref VcRect pRect, IntPtr dstAddress,
+                uint dstPitch);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_delete", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int VcDispmanxResourceDelete(uint res);
-        #endregion
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_resource_delete", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxResourceDelete(uint res);
+            #endregion
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_open", CallingConvention = CallingConvention.Cdecl)]
-        public static extern uint VcDispmanxDisplayOpen(uint device);
+            #region " Displays "
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_open", CallingConvention = CallingConvention.Cdecl)]
+            public static extern uint VcDispmanxDisplayOpen(uint device);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_open_mode", CallingConvention = CallingConvention.Cdecl)]
-        public static extern uint VcDispmanxDisplayOpenMode(uint device, uint mode);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_open_mode", CallingConvention = CallingConvention.Cdecl)]
+            public static extern uint VcDispmanxDisplayOpenMode(uint device, uint mode);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_reconfigure", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int VcDispmanxDisplayReconfigure(uint displayHandle, uint mode);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_reconfigure", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxDisplayReconfigure(uint displayHandle, uint mode);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_set_background", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int VcDispmanxDisplaySetBackground(uint updateHandle, uint displayHandle, byte red,
-            byte green, byte blue);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_set_background", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxDisplaySetBackground(uint updateHandle, uint displayHandle, byte red,
+                byte green, byte blue);
 
-        [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_close", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int VcDispmanxDisplayClose(uint displayHandle);
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_get_info", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxDisplayGetInfo(uint displayHandle, ref ModeInfo info);
 
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_display_close", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxDisplayClose(uint displayHandle);
+            #endregion
 
+            #region " Updates "
         [DllImport(BcmHost, EntryPoint = "vc_dispmanx_update_start", CallingConvention = CallingConvention.Cdecl)]
         public static extern uint VcDispmanxUpdateStart(int priority);
 
@@ -74,7 +79,15 @@ namespace svbnet.PiDraw.BcmHost
 
         [DllImport(BcmHost, EntryPoint = "vc_dispmanx_update_submit_sync", CallingConvention = CallingConvention.Cdecl)]
         public static extern int VcDispmanxUpdateSubmitSync(uint updateHandle);
-
         #endregion
+
+            #region " Misc "
+
+            [DllImport(BcmHost, EntryPoint = "vc_dispmanx_snapshot", CallingConvention = CallingConvention.Cdecl)]
+            public static extern int VcDispmanxSnapshot(uint display, uint snapshotResource, Transform transform);
+
+            #endregion
+
+            #endregion
     }
 }

@@ -18,7 +18,7 @@ namespace Example
 
         public static void Main(string[] args)
         {
-            Parser.Default.ParseArguments<ImageExample, TextWatermarkExample>(args)
+            Parser.Default.ParseArguments<ImageExample, TextWatermarkExample, SnapshotExample>(args)
                 .WithParsed((ExampleBase example) => example.Run());
         }
     }

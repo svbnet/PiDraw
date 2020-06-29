@@ -57,6 +57,7 @@
     <Compile Include="DispManX\HandleResource.cs" />
     <Compile Include="DispManX\DrawingResource.cs" />
     <Compile Include="DispManX\KeymaskFlags.cs" />
+    <Compile Include="DispManX\ModeInfo.cs" />
     <Compile Include="DispManX\Protection.cs" />
     <Compile Include="DispManX\Resource.cs" />
     <Compile Include="DispManX\Transform.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="VcTypes\VcImageType.cs" />
+    <Compile Include="VcTypes\VcosDisplayInputFormat.cs" />
     <Compile Include="VcTypes\VcRect.cs" />
   </ItemGroup>
   <ItemGroup>

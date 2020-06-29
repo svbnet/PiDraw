@@ -42,18 +42,40 @@ namespace svbnet.PiDraw.DispManX
 
         public new int Height { get; private set; }
 
+        public Image Image => bitmap;
+
         public Graphics CreateGraphics()
         {
             return Graphics.FromImage(bitmap);
         }
 
-        public void Redraw()
+        /// <summary>
+        /// Copies data from the internal bitmap to the underlying resource.
+        /// </summary>
+        public void Write()
         {
             var vcRect = new VcRect(0, 0, Width, Height);
             var data = bitmap.LockBits(vcRect.ToFrameworkRectangle(), ImageLockMode.ReadOnly, bitmap.PixelFormat);
             try
             {
                 WriteData(VcImageType.VcImageArgb8888, pitch, data.Scan0, ref vcRect);
+            }
+            finally
+            {
+                bitmap.UnlockBits(data);
+            }
+        }
+
+        /// <summary>
+        /// Copies data from the underlying resource to the internal bitmap.
+        /// </summary>
+        public void Read()
+        {
+            var vcRect = new VcRect(0, 0, Width, Height);
+            var data = bitmap.LockBits(vcRect.ToFrameworkRectangle(), ImageLockMode.WriteOnly, bitmap.PixelFormat);
+            try
+            {
+                ReadData((uint)pitch, data.Scan0, ref vcRect);
             }
             finally
             {

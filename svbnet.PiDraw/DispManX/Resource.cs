@@ -33,26 +33,21 @@ namespace svbnet.PiDraw.DispManX
             Height = height;
         }
 
-        public void WriteData(VcImageType imageType, int srcPitch, byte[] srcData, ref VcRect rect)
-        {
-            var ptr = Marshal.AllocCoTaskMem(srcData.Length);
-            Marshal.Copy(srcData, 0, ptr, srcData.Length);
-            try
-            {
-                WriteData(imageType, srcPitch, ptr, ref rect);
-            }
-            finally
-            {
-                Marshal.FreeCoTaskMem(ptr);
-            }
-        }
-
         public void WriteData(VcImageType imageType, int srcPitch, IntPtr srcData, ref VcRect rect)
         {
             var result = BcmHostNativeMethods.VcDispmanxResourceWriteData(Handle, imageType, srcPitch, srcData, ref rect);
             if (result != 0)
             {
                 throw new BcmHostException("Could not write data to resource", result);
+            }
+        }
+
+        public void ReadData(uint dstPitch, IntPtr dstBuffer, ref VcRect rect)
+        {
+            var result = BcmHostNativeMethods.VcDispmanxResourceReadData(Handle, ref rect, dstBuffer, dstPitch);
+            if (result != 0)
+            {
+                throw new BcmHostException("Could not read data from the resource", result);
             }
         }
 

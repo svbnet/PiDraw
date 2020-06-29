@@ -6,7 +6,7 @@ namespace svbnet.PiDraw.BcmHost
 {
     public class BcmHostException : Exception
     {
-        internal BcmHostException(string message, int errorCode) : base(message)
+        internal BcmHostException(string message, int errorCode) : base($"{message} ({errorCode})")
         {
             ErrorCode = errorCode;
         }

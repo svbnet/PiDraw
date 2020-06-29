@@ -15,6 +15,8 @@ namespace Example.Examples
     [Verb("TextWatermarkExample", HelpText = "Display text and a watermark near the bottom of the screen")]
     public class TextWatermarkExample : ExampleBase
     {
+        private bool running = false;
+
         [Option(HelpText = "Image path")]
         public string ImagePath { get; set; }
 
@@ -29,6 +31,11 @@ namespace Example.Examples
 
         public override int Run()
         {
+            Console.CancelKeyPress += (sender, args) =>
+            {
+                running = false;
+                args.Cancel = true;
+            };
             // Init library
             BcmHostLibrary.Init();
             Console.WriteLine("Initialized library!");
@@ -55,7 +62,7 @@ namespace Example.Examples
                         graphics.DrawImage(image, new Point(imageResource.Width - image.Width, imageResource.Height - image.Height));
                     }
                     // Write the buffer to the display
-                    imageResource.Redraw();
+                    imageResource.Write();
                     Console.WriteLine("Copied drawing");
 
                     var srcRect = new VcRect
@@ -72,9 +79,9 @@ namespace Example.Examples
                         new VcAlpha { Flags = AlphaFlags.FixedAllPixels, MaskResourceHandle = 0, Opacity = (uint)Opacity }, null, Transform.NoRotate);
                     update.SubmitSync();
                     Console.WriteLine("Written data to screen");
+                    running = true;
 
-                    // Wait a bit, then tear everything down
-                    Thread.Sleep(10000);
+                    while (running) ;
                     update = new Update(0);
                     element.Remove(update);
                     update.SubmitSync();
