@@ -15,14 +15,14 @@ namespace svbnet.PiDraw.BcmHost
         private const string BcmHost = "libbcm_host";
 
         #region " Functions defined in include/bcm_host.h "
-        [DllImport(BcmHost, EntryPoint = "bcm_host_init")]
+        [DllImport(BcmHost, EntryPoint = "bcm_host_init", CallingConvention = CallingConvention.Cdecl)]
         public static extern void BcmHostInit();
 
         [DllImport(BcmHost, EntryPoint = "bcm_host_deinit", CallingConvention = CallingConvention.Cdecl)]
         public static extern void BcmHostDeinit();
 
         [DllImport(BcmHost, EntryPoint = "graphics_get_display_size", CallingConvention = CallingConvention.Cdecl)]
-        public static extern int GraphicsGetDisplaySize(ushort displayNumber, out uint width, out uint height);
+        public static extern int GraphicsGetDisplaySize(ushort displayNumber, ref uint width, ref uint height);
         #endregion
 
         #region " Functions defined in include/interface/vmcs_host/vc_dispmanx.h "

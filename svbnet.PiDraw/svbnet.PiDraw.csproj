@@ -55,7 +55,7 @@
     <Compile Include="DispManX\Display.cs" />
     <Compile Include="DispManX\Element.cs" />
     <Compile Include="DispManX\HandleResource.cs" />
-    <Compile Include="DispManX\ImageResource.cs" />
+    <Compile Include="DispManX\DrawingResource.cs" />
     <Compile Include="DispManX\KeymaskFlags.cs" />
     <Compile Include="DispManX\Protection.cs" />
     <Compile Include="DispManX\Resource.cs" />

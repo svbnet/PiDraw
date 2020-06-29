@@ -1,6 +1,9 @@
 ﻿namespace svbnet.PiDraw.VcTypes
 {
     // interface/vctypes/vc_image_types.h
+    /// <summary>
+    /// Represents a VideoCore pixel format.
+    /// </summary>
     public enum VcImageType
     {
         VcImageRgb565 = 1,
